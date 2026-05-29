@@ -596,7 +596,7 @@
 
         const getData    = await getRes.json();
         const currentNum = getData.record.reportNumber;
-        const reportLabel = `ISWMTS/${currentNum}`;
+        const reportLabel = `${currentNum}`;
 
         // Set and LOCK the field
         input.value = reportLabel;
