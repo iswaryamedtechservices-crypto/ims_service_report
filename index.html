@@ -558,7 +558,7 @@
     // ============================================================
     // JSONBIN CONFIG
     // ============================================================
-    const JSONBIN_BIN_ID  = '6a198dd021f9ee59d299af30';
+    const JSONBIN_BIN_ID  = '6a1992a021f9ee59d299c87e';
     const JSONBIN_API_KEY = '$2a$10$DaKqw.1CnbFy2XnDqC85deJwAmakb7313XZ.4g8CQtY3K3HgKwc.a';
     const JSONBIN_URL     = `https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}`;
 
@@ -571,9 +571,7 @@
 
       try {
         // 1. GET current number
-        const getRes = await fetch(JSONBIN_URL + '/latest', {
-          headers: { 'X-Access-Key': $2a$10$DaKqw.1CnbFy2XnDqC85deJwAmakb7313XZ.4g8CQtY3K3HgKwc.a }
-        });
+        const getRes = await fetch(JSONBIN_URL + '/latest');
 
         if (!getRes.ok) throw new Error('Failed to fetch');
 
@@ -594,7 +592,6 @@
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
-            'X-Access-Key': $2a$10$DaKqw.1CnbFy2XnDqC85deJwAmakb7313XZ.4g8CQtY3K3HgKwc.a
           },
           body: JSON.stringify({ reportNumber: nextNum })
         });
