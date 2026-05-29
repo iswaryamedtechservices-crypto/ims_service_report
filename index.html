@@ -572,7 +572,7 @@
       try {
         // 1. GET current number
         const getRes = await fetch(JSONBIN_URL + '/latest', {
-          headers: { 'X-Master-Key': JSONBIN_API_KEY }
+          headers: { 'X-Access-Key': $2a$10$DaKqw.1CnbFy2XnDqC85deJwAmakb7313XZ.4g8CQtY3K3HgKwc.a }
         });
 
         if (!getRes.ok) throw new Error('Failed to fetch');
@@ -594,7 +594,7 @@
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
-            'X-Master-Key': JSONBIN_API_KEY
+            'X-Access-Key': $2a$10$DaKqw.1CnbFy2XnDqC85deJwAmakb7313XZ.4g8CQtY3K3HgKwc.a
           },
           body: JSON.stringify({ reportNumber: nextNum })
         });
