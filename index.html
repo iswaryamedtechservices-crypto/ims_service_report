@@ -726,6 +726,7 @@
         const nextNum = currentNum + 1;
         await fetch(JSONBIN_URL, {
           method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ reportNumber: nextNum })
         });
 
