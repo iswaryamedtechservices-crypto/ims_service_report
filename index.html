@@ -741,7 +741,7 @@
         if (!getRes.ok) throw new Error('Failed to fetch');
         const getData    = await getRes.json();
         const currentNum = getData.record.reportNumber;
-        input.value = `ISWMTS/${currentNum}`;
+        input.value = `${currentNum}`;
         input.setAttribute('readonly', true);
         input.classList.add('locked');
         autoExpand(input);
