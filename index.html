@@ -21,9 +21,6 @@
       padding: 20px;
     }
 
-    /* ============================================================
-       PASSWORD SCREEN
-    ============================================================ */
     #password-screen {
       position: fixed;
       inset: 0;
@@ -44,10 +41,7 @@
       box-shadow: 0 8px 32px rgba(0,0,0,0.3);
     }
 
-    #password-screen .lock-icon {
-      font-size: 40px;
-      margin-bottom: 12px;
-    }
+    #password-screen .lock-icon { font-size: 40px; margin-bottom: 12px; }
 
     #password-screen h2 {
       font-size: 16px;
@@ -101,9 +95,6 @@
 
     #password-submit:hover { background: #8a2400; }
 
-    /* ============================================================
-       MAIN FORM (hidden until password passed)
-    ============================================================ */
     #main-content { display: none; width: 100%; flex-direction: column; align-items: center; }
 
     #form-page {
@@ -140,10 +131,8 @@
     }
 
     textarea:focus { border-color: #b03000; background: #fff8f6; }
-
     textarea.boxed { border: 1px solid #ccc; border-radius: 3px; padding: 6px; min-height: 60px; }
     textarea.boxed:focus { border-color: #b03000; background: #fff8f6; }
-
     textarea.desc-input { border: none !important; border-radius: 0; padding: 4px 2px; min-height: 26px; background: transparent; }
     textarea.desc-input:focus { background: #fff8f6; border: none !important; }
 
@@ -154,6 +143,16 @@
       border-color: #ddd !important;
       pointer-events: none;
     }
+
+    /* CSE name — red border to indicate mandatory */
+    #cse-sig-name {
+      border: 1px solid #b03000 !important;
+    }
+    #cse-sig-name:focus { border-color: #b03000 !important; background: #fff8f6; }
+    #customer-sig-name:focus { border-color: #b03000; background: #fff8f6; }
+
+    /* N/A strikethrough */
+    .charges-na-active { opacity: 0.4; pointer-events: none; }
 
     input[type="date"] {
       font-family: 'Roboto', sans-serif;
@@ -263,9 +262,7 @@
     col.col-del     { width: 60px; }
 
     th, td { border: 1px solid #bbb; padding: 2px 4px; text-align: left; vertical-align: top; }
-
     th { background: #f5f5f5; font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.3px; color: #333; }
-
     .desc-cell { padding: 2px 4px; }
 
     th.del-col, td.del-col { border: none; background: transparent; width: 60px; padding: 4px 0 4px 6px; vertical-align: middle; }
@@ -306,38 +303,13 @@
 
     #add-row-btn:hover { background: #0f2540; }
 
-    /* ============================================================
-       STATUS SECTION
-    ============================================================ */
-    #section-status {
-      padding: 10px;
-      border-bottom: 1px solid #ccc;
-    }
+    #section-status { padding: 10px; border-bottom: 1px solid #ccc; }
+    #section-status > label { font-weight: 700; color: #222; font-size: 12px; margin-bottom: 8px; }
 
-    #section-status > label {
-      font-weight: 700;
-      color: #222;
-      font-size: 12px;
-      margin-bottom: 8px;
-    }
-
-    .status-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 8px;
-      flex-wrap: wrap;
-    }
-
-    .status-radio-wrap {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
+    .status-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
+    .status-radio-wrap { display: flex; align-items: center; gap: 6px; }
     .status-radio-wrap label { font-weight: 400; font-size: 12px; margin: 0; }
 
-    /* Sub-checkbox that appears when parent radio is selected */
     .status-sub {
       display: none;
       align-items: center;
@@ -357,7 +329,8 @@
       border-bottom: 1px solid #ccc;
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 16px;
+      flex-wrap: wrap;
     }
 
     #section-charges span { font-weight: 700; color: #222; font-size: 12px; }
@@ -397,6 +370,33 @@
     }
 
     .sig-clear-btn:hover, .sig-clear-btn:active { background: #888; color: white; }
+
+    .sig-sub-fields { margin-top: 8px; }
+
+    .sig-sub-fields textarea {
+      font-family: 'Roboto', sans-serif;
+      font-size: 12px;
+      width: 100%;
+      min-height: 28px;
+      background: transparent;
+      resize: none;
+      overflow: hidden;
+      outline: none;
+      border-radius: 3px;
+      padding: 4px 6px;
+      line-height: 1.8;
+      display: block;
+    }
+
+    .sig-date-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .sig-date-row label { font-weight: 400; font-size: 12px; margin: 0; white-space: nowrap; }
+    .sig-date-row input[type="date"] { flex: 1; }
 
     #footer { text-align: center; padding: 14px 10px; border-top: 3px solid #b03000; }
     #footer p { font-size: 11px; color: #555; }
@@ -466,7 +466,7 @@
       <div id="section-customer">
         <div class="field">
           <label>Customer Name</label>
-          <textarea class="auto-expand" placeholder="Enter customer name..."></textarea>
+          <textarea id="customer-name-input" class="auto-expand" placeholder="Enter customer name..."></textarea>
         </div>
         <div class="field" id="report-number-field">
           <label>Service Report Number</label>
@@ -475,7 +475,7 @@
         </div>
         <div class="field">
           <label>Customer Address</label>
-          <textarea id="customer-name-input" class="auto-expand" placeholder="Enter customer address..."></textarea>
+          <textarea class="auto-expand boxed" placeholder="Enter customer address..."></textarea>
         </div>
         <div class="field">
           <label>Date of Service</label>
@@ -579,8 +579,6 @@
       <!-- SECTION 6: Status -->
       <div id="section-status">
         <label>Status:</label>
-
-        <!-- Completed row -->
         <div class="status-row">
           <div class="status-radio-wrap">
             <input type="radio" name="job-status" id="status-completed" onchange="handleStatusChange(this)">
@@ -591,8 +589,6 @@
             <label for="chk-parts-replaced">Parts Replaced</label>
           </div>
         </div>
-
-        <!-- Incomplete row -->
         <div class="status-row">
           <div class="status-radio-wrap">
             <input type="radio" name="job-status" id="status-incomplete" onchange="handleStatusChange(this)">
@@ -603,21 +599,24 @@
             <label for="chk-needs-replacement">Needs Parts Replacement</label>
           </div>
         </div>
-
       </div>
 
       <!-- SECTION 7: Service Charges -->
       <div id="section-charges">
         <span>Service Charges Date</span>
-        <div class="charge-date">
+        <div class="charge-date" id="charge-from-wrap">
           <label style="font-weight:400; display:inline; margin:0; font-size:12px;">From:</label>
           <input type="date" id="date-from" />
           <span class="date-display" id="date-from-display"></span>
         </div>
-        <div class="charge-date">
+        <div class="charge-date" id="charge-to-wrap">
           <label style="font-weight:400; display:inline; margin:0; font-size:12px;">To:</label>
           <input type="date" id="date-to" />
           <span class="date-display" id="date-to-display"></span>
+        </div>
+        <div style="display:flex; align-items:center; gap:6px;">
+          <input type="checkbox" id="charges-na" onchange="toggleChargesNA(this)">
+          <label for="charges-na" style="font-weight:400; font-size:12px; margin:0; color:#444;">N/A</label>
         </div>
       </div>
 
@@ -629,6 +628,14 @@
             <canvas id="sig-engineer"></canvas>
           </div>
           <button class="sig-clear-btn" type="button" onclick="clearSignature('engineer')">Clear</button>
+          <div class="sig-sub-fields">
+            <textarea id="cse-sig-name" class="auto-expand" placeholder="CSE Name..."></textarea>
+            <div class="sig-date-row">
+              <label>Date:</label>
+              <input type="date" id="cse-sig-date" />
+              <span class="date-display" id="cse-sig-date-display"></span>
+            </div>
+          </div>
         </div>
         <div class="sig-box">
           <label>Customer Signature</label>
@@ -636,6 +643,14 @@
             <canvas id="sig-customer"></canvas>
           </div>
           <button class="sig-clear-btn" type="button" onclick="clearSignature('customer')">Clear</button>
+          <div class="sig-sub-fields">
+            <textarea id="customer-sig-name" class="auto-expand" placeholder="Customer Name..."></textarea>
+            <div class="sig-date-row">
+              <label>Date:</label>
+              <input type="date" id="customer-sig-date" />
+              <span class="date-display" id="customer-sig-date-display"></span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -655,9 +670,11 @@
 
   <script>
     // ============================================================
-    // PASSWORD — change this to whatever you want
+    // PASSWORD
     // ============================================================
     const CORRECT_PASSWORD = 'service1';
+
+    let engineerPad, customerPad;
 
     function checkPassword() {
       const input = document.getElementById('password-input').value;
@@ -666,7 +683,12 @@
         document.getElementById('password-screen').style.display = 'none';
         const main = document.getElementById('main-content');
         main.style.display = 'flex';
-        fetchAndIncrementReportNumber();
+        // Initialise signature pads AFTER content is visible
+        setTimeout(() => {
+        engineerPad = initSignaturePad('sig-engineer');
+        customerPad = initSignaturePad('sig-customer');
+      }, 100);
+      fetchAndIncrementReportNumber();
       } else {
         error.textContent = 'Incorrect password. Please try again.';
         document.getElementById('password-input').value = '';
@@ -678,15 +700,8 @@
     // STATUS LOGIC
     // ============================================================
     function handleStatusChange(radio) {
-      // Hide all subs first
-      document.querySelectorAll('.status-sub').forEach(el => {
-        el.classList.remove('visible');
-      });
-      // Uncheck all sub-checkboxes
-      document.querySelectorAll('.status-sub input[type="checkbox"]').forEach(cb => {
-        cb.checked = false;
-      });
-      // Show relevant sub
+      document.querySelectorAll('.status-sub').forEach(el => el.classList.remove('visible'));
+      document.querySelectorAll('.status-sub input[type="checkbox"]').forEach(cb => { cb.checked = false; });
       if (radio.id === 'status-completed') {
         document.getElementById('sub-completed').classList.add('visible');
       } else if (radio.id === 'status-incomplete') {
@@ -695,10 +710,25 @@
     }
 
     // ============================================================
+    // N/A TOGGLE FOR SERVICE CHARGES
+    // ============================================================
+    function toggleChargesNA(checkbox) {
+      const fromWrap = document.getElementById('charge-from-wrap');
+      const toWrap   = document.getElementById('charge-to-wrap');
+      if (checkbox.checked) {
+        fromWrap.classList.add('charges-na-active');
+        toWrap.classList.add('charges-na-active');
+      } else {
+        fromWrap.classList.remove('charges-na-active');
+        toWrap.classList.remove('charges-na-active');
+      }
+    }
+
+    // ============================================================
     // JSONBIN CONFIG
     // ============================================================
-    const JSONBIN_BIN_ID  = '6a198dd021f9ee59d299af30';
-    const JSONBIN_URL     = `https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}`;
+    const JSONBIN_BIN_ID = '6a1992a021f9ee59d299c87e';
+    const JSONBIN_URL    = `https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}`;
 
     // ============================================================
     // FETCH & INCREMENT REPORT NUMBER
@@ -706,30 +736,23 @@
     async function fetchAndIncrementReportNumber() {
       const input  = document.getElementById('report-number-input');
       const status = document.getElementById('report-number-status');
-
       try {
         const getRes = await fetch(JSONBIN_URL + '/latest');
-
         if (!getRes.ok) throw new Error('Failed to fetch');
-
-        const getData     = await getRes.json();
-        const currentNum  = getData.record.reportNumber;
-        const reportLabel = `${currentNum}`;
-
-        input.value = reportLabel;
+        const getData    = await getRes.json();
+        const currentNum = getData.record.reportNumber;
+        input.value = `ISWMTS/${currentNum}`;
         input.setAttribute('readonly', true);
         input.classList.add('locked');
         autoExpand(input);
         status.textContent = '✓ Report number assigned';
         setTimeout(() => { status.textContent = ''; }, 3000);
-
         const nextNum = currentNum + 1;
         await fetch(JSONBIN_URL, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ reportNumber: nextNum })
         });
-
       } catch (err) {
         input.removeAttribute('readonly');
         input.classList.remove('locked');
@@ -760,12 +783,17 @@
     const otherInput = document.getElementById('other-input');
     otherInput.addEventListener('input', function () { autoExpand(this); });
 
+    // Also auto-expand sig name fields
+    ['cse-sig-name', 'customer-sig-name'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener('input', function () { autoExpand(this); });
+    });
+
     // ============================================================
     // SIGNATURE PADS
     // ============================================================
     function initSignaturePad(canvasId) {
       const canvas = document.getElementById(canvasId);
-
       function setCanvasSize() {
         const wrap  = canvas.parentElement;
         const ratio = window.devicePixelRatio || 1;
@@ -777,20 +805,13 @@
         canvas.style.height = h + 'px';
         canvas.getContext('2d').scale(ratio, ratio);
       }
-
       setCanvasSize();
-
       const pad = new SignaturePad(canvas, { penColor: 'black', minWidth: 0.5, maxWidth: 2.5 });
-
       canvas.addEventListener('touchstart', e => { e.preventDefault(); e.stopPropagation(); }, { passive: false });
       canvas.addEventListener('touchmove',  e => { e.preventDefault(); e.stopPropagation(); }, { passive: false });
       canvas.addEventListener('touchend',   e => { e.preventDefault(); e.stopPropagation(); }, { passive: false });
-
       return pad;
     }
-
-    const engineerPad = initSignaturePad('sig-engineer');
-    const customerPad = initSignaturePad('sig-customer');
 
     function clearSignature(who) {
       if (who === 'engineer') engineerPad.clear();
@@ -858,9 +879,11 @@
 
     function showDatesForPDF() {
       [
-        ['date-of-service', 'date-of-service-display'],
-        ['date-from',       'date-from-display'],
-        ['date-to',         'date-to-display']
+        ['date-of-service',   'date-of-service-display'],
+        ['date-from',         'date-from-display'],
+        ['date-to',           'date-to-display'],
+        ['cse-sig-date',      'cse-sig-date-display'],
+        ['customer-sig-date', 'customer-sig-date-display'],
       ].forEach(([inpId, spanId]) => {
         const inp  = document.getElementById(inpId);
         const span = document.getElementById(spanId);
@@ -874,9 +897,11 @@
 
     function restoreDates() {
       [
-        ['date-of-service', 'date-of-service-display'],
-        ['date-from',       'date-from-display'],
-        ['date-to',         'date-to-display']
+        ['date-of-service',   'date-of-service-display'],
+        ['date-from',         'date-from-display'],
+        ['date-to',           'date-to-display'],
+        ['cse-sig-date',      'cse-sig-date-display'],
+        ['customer-sig-date', 'customer-sig-date-display'],
       ].forEach(([inpId, spanId]) => {
         const inp  = document.getElementById(inpId);
         const span = document.getElementById(spanId);
@@ -891,6 +916,13 @@
     // DOWNLOAD PDF
     // ============================================================
     async function downloadPDF() {
+      // CSE name mandatory check
+      const cseName = document.getElementById('cse-sig-name')?.value?.trim();
+      if (!cseName) {
+        alert('CSE Name is required before downloading.');
+        return;
+      }
+
       const btn = document.getElementById('download-btn');
       btn.textContent = 'Generating...';
       btn.disabled    = true;
