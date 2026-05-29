@@ -144,14 +144,10 @@
       pointer-events: none;
     }
 
-    /* CSE name — red border to indicate mandatory */
-    #cse-sig-name {
-      border: 1px solid #b03000 !important;
-    }
+    #cse-sig-name { border: 1px solid #b03000 !important; }
     #cse-sig-name:focus { border-color: #b03000 !important; background: #fff8f6; }
     #customer-sig-name:focus { border-color: #b03000; background: #fff8f6; }
 
-    /* N/A strikethrough */
     .charges-na-active { opacity: 0.4; pointer-events: none; }
 
     input[type="date"] {
@@ -264,7 +260,6 @@
     th, td { border: 1px solid #bbb; padding: 2px 4px; text-align: left; vertical-align: top; }
     th { background: #f5f5f5; font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.3px; color: #333; }
     .desc-cell { padding: 2px 4px; }
-
     th.del-col, td.del-col { border: none; background: transparent; width: 60px; padding: 4px 0 4px 6px; vertical-align: middle; }
 
     .delete-btn {
@@ -324,6 +319,53 @@
     .status-sub.visible { display: flex; }
     .status-sub label { font-weight: 400; font-size: 12px; margin: 0; color: #444; }
 
+    /* CSE WORKING HOURS */
+    #section-working-hours { padding: 10px; border-bottom: 1px solid #ccc; }
+    #section-working-hours > label { font-weight: 700; font-size: 12px; color: #222; margin-bottom: 8px; display: block; }
+
+    .days-input-row { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+    .days-input-row label { font-weight: 400; font-size: 12px; margin: 0; white-space: nowrap; }
+    .days-input-row input[type="number"] {
+      width: 60px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      padding: 4px 6px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 12px;
+      outline: none;
+      color: #1a1a1a;
+    }
+    .days-input-row input[type="number"]:focus { border-color: #b03000; background: #fff8f6; }
+
+    .day-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
+    .day-row .day-label { font-weight: 700; font-size: 12px; color: #333; min-width: 40px; }
+    .day-row .time-group { display: flex; align-items: center; gap: 6px; }
+    .day-row .time-group label { font-weight: 400; font-size: 12px; margin: 0; white-space: nowrap; }
+    .day-row input[type="time"] {
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      padding: 4px 6px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 12px;
+      outline: none;
+      color: #1a1a1a;
+      background: transparent;
+    }
+    .day-row input[type="time"]:focus { border-color: #b03000; background: #fff8f6; }
+
+    .total-hours-row {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      background: #f5f5f5;
+      border-radius: 3px;
+      border: 1px solid #ddd;
+    }
+    .total-hours-row label { font-weight: 700; font-size: 12px; margin: 0; color: #222; }
+    #total-hours-display { font-size: 12px; font-weight: 700; color: #b03000; }
+
     #section-charges {
       padding: 10px;
       border-bottom: 1px solid #ccc;
@@ -372,7 +414,6 @@
     .sig-clear-btn:hover, .sig-clear-btn:active { background: #888; color: white; }
 
     .sig-sub-fields { margin-top: 8px; }
-
     .sig-sub-fields textarea {
       font-family: 'Roboto', sans-serif;
       font-size: 12px;
@@ -388,13 +429,7 @@
       display: block;
     }
 
-    .sig-date-row {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 6px;
-    }
-
+    .sig-date-row { display: flex; align-items: center; gap: 6px; margin-top: 6px; }
     .sig-date-row label { font-weight: 400; font-size: 12px; margin: 0; white-space: nowrap; }
     .sig-date-row input[type="date"] { flex: 1; }
 
@@ -436,119 +471,6 @@
 
     #download-btn:hover, #download-btn:active { background: #8a2400; }
     #download-btn:disabled { background: #aaa !important; cursor: not-allowed; }
-
-    /* CSE WORKING HOURS */
-#section-working-hours {
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-}
-
-#section-working-hours > label {
-  font-weight: 700;
-  font-size: 12px;
-  color: #222;
-  margin-bottom: 8px;
-  display: block;
-}
-
-.days-input-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-
-.days-input-row label {
-  font-weight: 400;
-  font-size: 12px;
-  margin: 0;
-  white-space: nowrap;
-}
-
-.days-input-row input[type="number"] {
-  width: 60px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  padding: 4px 6px;
-  font-family: 'Roboto', sans-serif;
-  font-size: 12px;
-  outline: none;
-  color: #1a1a1a;
-}
-
-.days-input-row input[type="number"]:focus {
-  border-color: #b03000;
-  background: #fff8f6;
-}
-
-.day-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 8px;
-  flex-wrap: wrap;
-}
-
-.day-row .day-label {
-  font-weight: 700;
-  font-size: 12px;
-  color: #333;
-  min-width: 40px;
-}
-
-.day-row .time-group {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.day-row .time-group label {
-  font-weight: 400;
-  font-size: 12px;
-  margin: 0;
-  white-space: nowrap;
-}
-
-.day-row input[type="time"] {
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  padding: 4px 6px;
-  font-family: 'Roboto', sans-serif;
-  font-size: 12px;
-  outline: none;
-  color: #1a1a1a;
-  background: transparent;
-}
-
-.day-row input[type="time"]:focus {
-  border-color: #b03000;
-  background: #fff8f6;
-}
-
-.total-hours-row {
-  margin-top: 10px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 10px;
-  background: #f5f5f5;
-  border-radius: 3px;
-  border: 1px solid #ddd;
-}
-
-.total-hours-row label {
-  font-weight: 700;
-  font-size: 12px;
-  margin: 0;
-  color: #222;
-}
-
-#total-hours-display {
-  font-size: 12px;
-  font-weight: 700;
-  color: #b03000;
-}
-    
   </style>
 </head>
 <body>
@@ -715,18 +637,18 @@
       </div>
 
       <!-- SECTION 6B: CSE Working Hours -->
-<div id="section-working-hours">
-  <label>CSE Working Hours</label>
-  <div class="days-input-row">
-    <label for="num-days">Number of days worked:</label>
-    <input type="number" id="num-days" min="1" max="30" placeholder="0" oninput="generateDayRows(this.value)" />
-  </div>
-  <div id="day-rows-container"></div>
-  <div class="total-hours-row" id="total-hours-row" style="display:none;">
-    <label>Total Hours:</label>
-    <span id="total-hours-display">0 hrs 0 mins</span>
-  </div>
-</div>
+      <div id="section-working-hours">
+        <label>CSE Working Hours</label>
+        <div class="days-input-row">
+          <label for="num-days">Number of days worked:</label>
+          <input type="number" id="num-days" min="1" max="30" placeholder="0" oninput="generateDayRows(this.value)" />
+        </div>
+        <div id="day-rows-container"></div>
+        <div class="total-hours-row" id="total-hours-row" style="display:none;">
+          <label>Total Hours:</label>
+          <span id="total-hours-display">0 hrs 0 mins</span>
+        </div>
+      </div>
 
       <!-- SECTION 7: Service Charges -->
       <div id="section-charges">
@@ -791,7 +713,7 @@
     </div>
 
     <div class="btn-row">
-      <button id="download-btn" type="button" onclick="downloadPDF()">⬇ Download PDF</button>
+      <button id="download-btn" type="button" onclick="downloadPDF()">⬇ Generate Report</button>
     </div>
   </div>
 
@@ -810,12 +732,11 @@
         document.getElementById('password-screen').style.display = 'none';
         const main = document.getElementById('main-content');
         main.style.display = 'flex';
-        // Initialise signature pads AFTER content is visible
         setTimeout(() => {
-        engineerPad = initSignaturePad('sig-engineer');
-        customerPad = initSignaturePad('sig-customer');
-      }, 100);
-      fetchAndIncrementReportNumber();
+          engineerPad = initSignaturePad('sig-engineer');
+          customerPad = initSignaturePad('sig-customer');
+        }, 100);
+        fetchAndIncrementReportNumber();
       } else {
         error.textContent = 'Incorrect password. Please try again.';
         document.getElementById('password-input').value = '';
@@ -852,6 +773,74 @@
     }
 
     // ============================================================
+    // CSE WORKING HOURS
+    // ============================================================
+    function generateDayRows(val) {
+      const container = document.getElementById('day-rows-container');
+      const totalRow  = document.getElementById('total-hours-row');
+      const n = parseInt(val);
+
+      container.innerHTML = '';
+
+      if (!n || n < 1) {
+        totalRow.style.display = 'none';
+        return;
+      }
+
+      totalRow.style.display = 'flex';
+
+      for (let i = 1; i <= n; i++) {
+        const row = document.createElement('div');
+        row.className = 'day-row';
+        row.innerHTML = `
+          <span class="day-label">Day ${i}:</span>
+          <div class="time-group">
+            <label>Start:</label>
+            <input type="time" id="start-${i}" onchange="calculateTotalHours(${n})" />
+          </div>
+          <div class="time-group">
+            <label>End:</label>
+            <input type="time" id="end-${i}" onchange="calculateTotalHours(${n})" />
+          </div>
+        `;
+        container.appendChild(row);
+      }
+
+      calculateTotalHours(n);
+    }
+
+    function calculateTotalHours(n) {
+      let totalMinutes = 0;
+
+      for (let i = 1; i <= n; i++) {
+        const startInput = document.getElementById(`start-${i}`);
+        const endInput   = document.getElementById(`end-${i}`);
+        if (!startInput || !endInput) continue;
+
+        const start = startInput.value;
+        const end   = endInput.value;
+        if (!start || !end) continue;
+
+        const [sh, sm] = start.split(':').map(Number);
+        const [eh, em] = end.split(':').map(Number);
+
+        let startMins = sh * 60 + sm;
+        let endMins   = eh * 60 + em;
+
+        if (endMins < startMins) endMins += 24 * 60;
+
+        const diff = endMins - startMins;
+        if (diff > 0) totalMinutes += diff;
+      }
+
+      const hrs  = Math.floor(totalMinutes / 60);
+      const mins = totalMinutes % 60;
+
+      document.getElementById('total-hours-display').textContent =
+        `${hrs} hr${hrs !== 1 ? 's' : ''} ${mins} min${mins !== 1 ? 's' : ''}`;
+    }
+
+    // ============================================================
     // JSONBIN CONFIG
     // ============================================================
     const JSONBIN_BIN_ID = '6a1992a021f9ee59d299c87e';
@@ -868,7 +857,7 @@
         if (!getRes.ok) throw new Error('Failed to fetch');
         const getData    = await getRes.json();
         const currentNum = getData.record.reportNumber;
-        input.value = `${currentNum}`;
+        input.value = `ISWMTS/${currentNum}`;
         input.setAttribute('readonly', true);
         input.classList.add('locked');
         autoExpand(input);
@@ -910,7 +899,6 @@
     const otherInput = document.getElementById('other-input');
     otherInput.addEventListener('input', function () { autoExpand(this); });
 
-    // Also auto-expand sig name fields
     ['cse-sig-name', 'customer-sig-name'].forEach(id => {
       const el = document.getElementById(id);
       if (el) el.addEventListener('input', function () { autoExpand(this); });
@@ -996,75 +984,6 @@
     }
 
     // ============================================================
-// CSE WORKING HOURS
-// ============================================================
-function generateDayRows(val) {
-  const container = document.getElementById('day-rows-container');
-  const totalRow  = document.getElementById('total-hours-row');
-  const n = parseInt(val);
-
-  container.innerHTML = '';
-
-  if (!n || n < 1) {
-    totalRow.style.display = 'none';
-    return;
-  }
-
-  totalRow.style.display = 'flex';
-
-  for (let i = 1; i <= n; i++) {
-    const row = document.createElement('div');
-    row.className = 'day-row';
-    row.innerHTML = `
-      <span class="day-label">Day ${i}:</span>
-      <div class="time-group">
-        <label>Start:</label>
-        <input type="time" id="start-${i}" onchange="calculateTotalHours(${n})" />
-      </div>
-      <div class="time-group">
-        <label>End:</label>
-        <input type="time" id="end-${i}" onchange="calculateTotalHours(${n})" />
-      </div>
-    `;
-    container.appendChild(row);
-  }
-
-  calculateTotalHours(n);
-}
-
-function calculateTotalHours(n) {
-  let totalMinutes = 0;
-
-  for (let i = 1; i <= n; i++) {
-    const startInput = document.getElementById(`start-${i}`);
-    const endInput   = document.getElementById(`end-${i}`);
-    if (!startInput || !endInput) continue;
-
-    const start = startInput.value;
-    const end   = endInput.value;
-    if (!start || !end) continue;
-
-    const [sh, sm] = start.split(':').map(Number);
-    const [eh, em] = end.split(':').map(Number);
-
-    let startMins = sh * 60 + sm;
-    let endMins   = eh * 60 + em;
-
-    // If end is before start, assume it crossed midnight
-    if (endMins < startMins) endMins += 24 * 60;
-
-    const diff = endMins - startMins;
-    if (diff > 0) totalMinutes += diff;
-  }
-
-  const hrs  = Math.floor(totalMinutes / 60);
-  const mins = totalMinutes % 60;
-
-  document.getElementById('total-hours-display').textContent =
-    `${hrs} hr${hrs !== 1 ? 's' : ''} ${mins} min${mins !== 1 ? 's' : ''}`;
-}
-
-    // ============================================================
     // DATE HELPERS
     // ============================================================
     function formatDateValue(val) {
@@ -1112,10 +1031,9 @@ function calculateTotalHours(n) {
     // DOWNLOAD PDF
     // ============================================================
     async function downloadPDF() {
-      // CSE name mandatory check
       const cseName = document.getElementById('cse-sig-name')?.value?.trim();
       if (!cseName) {
-        alert('CSE Name is required before downloading.');
+        alert('CSE Name is required before generating the report.');
         return;
       }
 
@@ -1193,7 +1111,8 @@ function calculateTotalHours(n) {
       const sectionIds = [
         'form-title','section-customer','section-equipment',
         'section-problem','section-service',
-        'section-status','section-working-hours','section-charges','section-signatures'
+        'section-status','section-working-hours',
+        'section-charges','section-signatures'
       ];
 
       const sections = {};
@@ -1248,7 +1167,7 @@ function calculateTotalHours(n) {
         place(rows[i].img, rows[i].h);
       }
 
-      const afterIds = ['section-status','section-charges','section-signatures'];
+      const afterIds = ['section-status','section-working-hours','section-charges','section-signatures'];
       for (let i = 0; i < afterIds.length; i++) {
         const s      = sections[afterIds[i]]; if (!s) continue;
         const isLast = i === afterIds.length - 1;
@@ -1265,7 +1184,7 @@ function calculateTotalHours(n) {
       const customerName = document.getElementById('customer-name-input')?.value?.trim().replace(/\s+/g, '_') || 'Customer';
       const serialNumber = document.querySelector('#section-equipment .equip-left .field:nth-child(2) textarea')?.value?.trim().replace(/\s+/g, '_') || 'NoSerial';
       const fileName     = `ISW-SR-${customerName}-${serialNumber}.pdf`;
-      
+
       try {
         const pdfBlob = pdf.output('blob');
         const blobUrl = URL.createObjectURL(pdfBlob);
@@ -1288,7 +1207,7 @@ function calculateTotalHours(n) {
       restoreDates();
       reportInput.classList.add('locked');
 
-      btn.textContent = '⬇ Download PDF';
+      btn.textContent = '⬇ Generate Report';
       btn.disabled    = false;
     }
 
